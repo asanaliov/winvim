@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+  <assemblyIdentity version="1.0.0.0" name="Winvim.App" />
+
+  <!--
+    Deliberately DPI-unaware: this lets the coordinates UI Automation reports for
+    the foreground window line up 1:1 with the WPF overlay's own coordinate space
+    without per-monitor DPI math. Windows virtualizes/scales the whole process for
+    us. Trade-off: hint labels can look slightly soft on high-DPI displays.
+    See README "Known limitations".
+  -->
+  <application xmlns="urn:schemas-microsoft-com:asm.v3">
+    <windowsSettings>
+      <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">false</dpiAware>
+    </windowsSettings>
+  </application>
+
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+    <security>
+      <requestedPrivileges>
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+</assembly>
