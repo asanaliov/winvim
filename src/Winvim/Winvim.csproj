@@ -11,7 +11,9 @@
     <AssemblyName>winvim</AssemblyName>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x64</Platforms>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <!-- WPF's text/font layout needs real culture data (MS.Internal.FontCache), so
+         InvariantGlobalization can't be enabled here — it crashes the first time any
+         text renders (e.g. TypeInitializationException in MajorLanguages..cctor). -->
     <!-- DPI-unaware is set deliberately in app.manifest; see the comment there. -->
     <NoWarn>$(NoWarn);WFO0003</NoWarn>
   </PropertyGroup>
